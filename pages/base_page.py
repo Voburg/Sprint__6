@@ -1,7 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 import allure
-from locators.main_page_locators import MainPageLocators
 
 class BasePage:
     def __init__(self, driver):
@@ -34,7 +33,6 @@ class BasePage:
 
     @allure.step("Получить заголовок страницы")
     def get_page_title(self):
-        WebDriverWait(self.driver, 6).until(expected_conditions.presence_of_element_located(MainPageLocators.title_dzen))
         return self.driver.title
 
     @allure.step("Проверить отображение элемента")

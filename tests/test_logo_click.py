@@ -1,5 +1,5 @@
 import allure
-from conftest import driver
+from data import TestData
 from pages.main_page import MainPage
 
 class TestLogo:
@@ -19,4 +19,4 @@ class TestLogo:
         main_page.wait_visibility_of_header_logo_yandex()
         main_page.click_on_header_logo_yandex()
         main_page.switch_to_next_tab()
-        assert main_page.get_page_title() == "Дзен — платформа для просмотра и создания контента. Вы всегда найдёте здесь то, что подходит именно вам: сотни тысяч авторов ежедневно делятся постами, статьями, видео и короткими роликами"
+        assert main_page.get_page_title() == TestData.dzen_page_title

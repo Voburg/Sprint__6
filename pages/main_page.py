@@ -1,4 +1,6 @@
 import allure
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 from locators.main_page_locators import MainPageLocators
 from pages.base_page import BasePage
 
@@ -55,3 +57,8 @@ class MainPage(BasePage):
     @allure.step("Получить текст нужного номера ответа в аккордеоне 'Вопросы о важном'")
     def get_displayed_text_from_faq_answer(self, data):
         return self.get_text_on_element(MainPageLocators.faq_answers_items[data])
+
+    @allure.step("Получить заголовок страницы")
+    def get_page_title(self):
+        WebDriverWait(self.driver, 6).until(expected_conditions.presence_of_element_located(MainPageLocators.title_dzen))
+        return self.driver.title

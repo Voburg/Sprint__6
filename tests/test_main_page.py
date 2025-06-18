@@ -1,6 +1,5 @@
 import allure
 import pytest
-from conftest import driver
 from data import TestData
 from pages.main_page import MainPage
 
